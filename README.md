@@ -1,0 +1,1 @@
+# table_recognition_with_opencv_and_pyqt5
