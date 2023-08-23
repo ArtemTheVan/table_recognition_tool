@@ -2,6 +2,9 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class GraphicsView(QtWidgets.QGraphicsView):
+
+    mouse_left_released = QtCore.pyqtSignal(list)
+
     def __init__(self, *argv, **keywords):
         super(GraphicsView, self).__init__(*argv, **keywords)
         self._numScheduledScalings = 0
@@ -58,6 +61,8 @@ class GraphicsView(QtWidgets.QGraphicsView):
         if event.button() == QtCore.Qt.LeftButton:
             pos = self.mapToScene(event.pos())
             self.coordinates.append(pos)
+
+        self.mouse_left_released.emit( self.coordinates )
 
     def scaling_time(self, x):
         factor = 1.0 + float(self._numScheduledScalings) / 300.0

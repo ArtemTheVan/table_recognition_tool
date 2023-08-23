@@ -23,8 +23,6 @@ class Tesseract():
     def OCR_file(self, filename):
         output_file = Path('__temp__.txt')
         # cmd = [self.tesseract, str(filename), output_file.stem]
-        print(str(filename))
-        print(output_file.stem)
         cmd = self.tesseract + ' ' + str(filename) + ' ' + output_file.stem
         startupinfo = None
         import os

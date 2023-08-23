@@ -42,9 +42,9 @@ class ImageProcess(object):
                 x, y, w, h = p1[0], p1[1], p3[0] - p1[0], p3[1] - p1[1]
                 rect =  [x, y, w, h]
 
-                if False in [ False for r in rect if r < 0 ]:
+                if False in [ False for r in rect if r < 1 ]:
                     continue
-                        
+                
                 if self.same_rect_is_in_rects(rect, rects, 10):
                     continue
 
